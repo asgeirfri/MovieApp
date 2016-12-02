@@ -23,7 +23,7 @@ namespace MovieApp.iOS.Controllers
 
 		public override void ViewDidLoad()
 		{
-			this.View.BackgroundColor = UIColor.Green;
+			this.View.BackgroundColor = UIColor.FromRGB(171, 0, 16);
 			this.Title = "Movie List";
 			this.TableView.RowHeight = 60;
 

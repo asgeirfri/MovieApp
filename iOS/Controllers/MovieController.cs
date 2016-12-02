@@ -25,7 +25,7 @@ namespace MovieApp.iOS.Controllers
 		public MovieController()
 		{
 			// Note: this .ctor should not contain any initialization logic.
-			this.Title = "Cunt Search";
+			this.Title = "Movie Search";
 			this.TabBarItem = new UITabBarItem(UITabBarSystemItem.Search, 0);
 
 			MyMovieDbSettings settings = new MyMovieDbSettings();
@@ -38,7 +38,7 @@ namespace MovieApp.iOS.Controllers
 			base.ViewDidLoad();
 
 			// Perform any additional setup after loading the view, typically from a nib.
-			this.View.BackgroundColor = UIColor.Cyan;
+			this.View.BackgroundColor = UIColor.FromRGB(171,0,16);
 			this._yCord = StartY;
 
 			var prompt = CreatePrompt();
@@ -55,6 +55,10 @@ namespace MovieApp.iOS.Controllers
 
 			searchButton.TouchUpInside += async (sender, e) =>
 			{
+				if (movieField.Text == "")
+				{
+					return;
+				}
 				movieField.ResignFirstResponder();
 				searchButton.Enabled = false;
 				var movieApi = MovieDbFactory.Create<IApiMovieRequest>().Value;
@@ -63,7 +67,8 @@ namespace MovieApp.iOS.Controllers
 				var results = new List<MovieDetailsDTO>();
 				foreach (var res in response.Results)
 				{
-					var response2 = await movieApi.GetCreditsAsync(res.Id);
+					var durationResponse = await movieApi.FindByIdAsync(res.Id);
+					var creditResponse = await movieApi.GetCreditsAsync(res.Id);
 					string localPath = "";
 					if (res.PosterPath != null)
 					{
@@ -76,19 +81,27 @@ namespace MovieApp.iOS.Controllers
 					}
 
 					string casts = "";
-					for (int i = 0; i < 3; i++)
+					if (creditResponse.Item != null)
 					{
-						if (response2.Item.CastMembers.Count > i)
+						for (int i = 0; i < 3; i++)
 						{
-							casts += response2.Item.CastMembers[i].Name + ", ";
+							if (creditResponse.Item.CastMembers.Count > i)
+							{
+								casts += creditResponse.Item.CastMembers[i].Name + ", ";
+							}
+						}
+						if (casts.Length > 2)
+						{
+							casts = casts.Remove(casts.Length - 2);
 						}
 					}
-					if (casts.Length > 2)
+					var duration = "";
+					if (durationResponse.Item != null)
 					{
-						casts = casts.Remove(casts.Length - 2);
+						duration = durationResponse.Item.Runtime.ToString();
 					}
 
-					var resp = new MovieDetailsDTO(res, localPath, casts);
+					var resp = new MovieDetailsDTO(res, localPath, casts, duration);
 					results.Add(resp);
 				}
 				this.NavigationController.PushViewController(new MovieListController(results), true);
@@ -113,7 +126,8 @@ namespace MovieApp.iOS.Controllers
 			var prompt = new UILabel()
 			{
 				Frame = new CGRect(HorizontalMargin, this._yCord, this.View.Bounds.Width, 50),
-				Text = "Enter words in movie title:"
+				Text = "Enter words in movie title:",
+				TextColor = UIColor.White
 			};
 			return prompt;
 		}
@@ -124,7 +138,7 @@ namespace MovieApp.iOS.Controllers
 			{
 				Frame = new CGRect(HorizontalMargin, this._yCord, this.View.Bounds.Width - 2 * HorizontalMargin, 50),
 				BorderStyle = UITextBorderStyle.RoundedRect,
-				Placeholder = "Movie title"
+				Placeholder = "Movie title",
 			};
 			return movieField;
 		}
@@ -134,6 +148,8 @@ namespace MovieApp.iOS.Controllers
 			var searchButton = UIButton.FromType(UIButtonType.RoundedRect);
 			searchButton.Frame = new CGRect(HorizontalMargin, this._yCord, this.View.Bounds.Width - 2 * HorizontalMargin, 50);
 			searchButton.SetTitle(title, UIControlState.Normal);
+			searchButton.SetTitleColor(UIColor.White, UIControlState.Normal);
+			searchButton.SetTitleColor(UIColor.Gray, UIControlState.Disabled);
 			return searchButton;
 		}
 
@@ -142,7 +158,7 @@ namespace MovieApp.iOS.Controllers
 			UIActivityIndicatorView spinner = new UIActivityIndicatorView()
 			{
 				Frame = new CGRect(HorizontalMargin, this._yCord, this.View.Bounds.Width - 2 * HorizontalMargin, 50),
-				Color = UIColor.Magenta
+				Color = UIColor.White
 			};
 			return spinner;
 		}
@@ -159,7 +175,7 @@ namespace MovieApp.iOS.Controllers
 		var results = new List<MovieDetailsDTO>();
 		foreach (var res in response.Results)
 		{
-			var response2 = await movieApi.GetCreditsAsync(res.Id);
+			var creditResponse = await movieApi.GetCreditsAsync(res.Id);
 			string localPath = "";
 			if (res.PosterPath != null)
 			{
@@ -174,9 +190,9 @@ namespace MovieApp.iOS.Controllers
 			string casts = "";
 			for (int i = 0; i < 3; i++)
 			{
-				if (response2.Item.CastMembers.Count > i)
+				if (creditResponse.Item.CastMembers.Count > i)
 				{
-					casts += response2.Item.CastMembers[i].Name + ", ";
+					casts += creditResponse.Item.CastMembers[i].Name + ", ";
 				}
 			}
 			if (casts.Length > 2)

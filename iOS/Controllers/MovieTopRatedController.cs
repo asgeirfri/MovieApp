@@ -34,7 +34,7 @@ namespace MovieApp.iOS.Controllers
 		public override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
-			this.View.BackgroundColor = UIColor.Yellow;
+			this.View.BackgroundColor = UIColor.FromRGB(171, 0, 16);
 			this.TableView.RowHeight = 60;
 
 			_spinner = CreateSpinner();
@@ -53,7 +53,8 @@ namespace MovieApp.iOS.Controllers
 				var results = new List<MovieDetailsDTO>();
 				foreach (var res in response.Results)
 				{
-					var response2 = await _movieApi.GetCreditsAsync(res.Id);
+					var durationResponse = await _movieApi.FindByIdAsync(res.Id);
+					var creditResponse = await _movieApi.GetCreditsAsync(res.Id);
 					string localPath = "";
 					if (res.PosterPath != null)
 					{
@@ -66,19 +67,27 @@ namespace MovieApp.iOS.Controllers
 					}
 
 					string casts = "";
-					for (int i = 0; i < 3; i++)
+					if (creditResponse.Item != null)
 					{
-						if (response2.Item.CastMembers.Count > i)
+						for (int i = 0; i < 3; i++)
 						{
-							casts += response2.Item.CastMembers[i].Name + ", ";
+							if (creditResponse.Item.CastMembers.Count > i)
+							{
+								casts += creditResponse.Item.CastMembers[i].Name + ", ";
+							}
+						}
+						if (casts.Length > 2)
+						{
+							casts = casts.Remove(casts.Length - 2);
 						}
 					}
-					if (casts.Length > 2)
+					var duration = "";
+					if (durationResponse.Item != null)
 					{
-						casts = casts.Remove(casts.Length - 2);
+						duration = durationResponse.Item.Runtime.ToString();
 					}
 
-					var resp = new MovieDetailsDTO(res, localPath, casts);
+					var resp = new MovieDetailsDTO(res, localPath, casts, duration);
 					results.Add(resp);
 				}
 				_movies = results;
@@ -114,7 +123,7 @@ namespace MovieApp.iOS.Controllers
 			var results = new List<MovieDetailsDTO>();
 			foreach (var res in response.Results)
 			{
-				var response2 = await movieApi.GetCreditsAsync(res.Id);
+				var creditResponse = await movieApi.GetCreditsAsync(res.Id);
 				string localPath = "";
 				if (res.PosterPath != null)
 				{
@@ -129,9 +138,9 @@ namespace MovieApp.iOS.Controllers
 				string casts = "";
 				for (int i = 0; i < 3; i++)
 				{
-					if (response2.Item.CastMembers.Count > i)
+					if (creditResponse.Item.CastMembers.Count > i)
 					{
-						casts += response2.Item.CastMembers[i].Name + ", ";
+						casts += creditResponse.Item.CastMembers[i].Name + ", ";
 					}
 				}
 				if (casts.Length > 2)

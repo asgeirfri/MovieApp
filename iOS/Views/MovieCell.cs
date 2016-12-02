@@ -16,14 +16,14 @@ namespace MovieApp.iOS.Views
 		{
 			this._titleLabel = new UILabel()
 			{
-				Font = UIFont.FromName("Arial", 16f),
-				TextColor = UIColor.FromRGB(60, 15, 100)
+				Font = UIFont.SystemFontOfSize(16f),
+				TextColor = UIColor.Black
 			};
 
 			this._actorsLabel = new UILabel()
 			{
-				Font = UIFont.FromName("Arial", 10f),
-				TextColor = UIColor.Brown
+				Font = UIFont.SystemFontOfSize(10f),
+				TextColor = UIColor.Black
 			};
 
 			this._posterImage = new UIImageView();

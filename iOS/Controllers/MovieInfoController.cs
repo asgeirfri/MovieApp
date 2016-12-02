@@ -22,13 +22,13 @@ namespace MovieApp.iOS
 		{
 			base.ViewDidLoad();
 			this.Title = "Movie Info";
-			this.View.BackgroundColor = UIColor.Purple;
+			this.View.BackgroundColor = UIColor.FromRGB(171, 0, 16);
 			this._yCord = StartY;
 
-			UILabel title = CreateLabel(_movie.info.Title + " (" + _movie.info.ReleaseDate.Year.ToString() + ")", HorizontalMargin, this.View.Bounds.Width, 50, 30);
+			UILabel title = CreateLabel(_movie.info.Title + " (" + _movie.info.ReleaseDate.Year.ToString() + ")", HorizontalMargin, this.View.Bounds.Width, 50, 20);
 			StepDown();
 
-			string genreString = "";
+			string genreString = _movie.duration + " min | ";
 			foreach (var genre in _movie.info.Genres)
 			{
 				genreString += genre.Name.ToString() + ", ";
@@ -62,7 +62,8 @@ namespace MovieApp.iOS
 			{
 				Frame = new CGRect(horizontalMargin, this._yCord, width, height),
 				Text = text,
-				Font = UIFont.FromName("Arial", fontSize)
+				Font = UIFont.SystemFontOfSize(fontSize),
+				TextColor = UIColor.White
 			};
 			return prompt;
 		}
