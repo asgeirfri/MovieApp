@@ -1,0 +1,22 @@
+﻿<Properties StartupConfiguration="{17DB0048-866C-4DD9-B6FC-F715A563F2D7}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/Controllers/MovieController.cs">
+    <Files>
+      <File FileName="iOS/Controllers/MovieController.cs" Line="36" Column="37" />
+      <File FileName="iOS/Controllers/MovieListController.cs" Line="20" Column="3" />
+      <File FileName="iOS/Controllers/MovieTopRatedController.cs" Line="52" Column="64" />
+      <File FileName="iOS/Main.cs" Line="17" Column="1" />
+      <File FileName="iOS/Controllers/TabBarController.cs" Line="19" Column="3" />
+      <File FileName="iOS/AppDelegate.cs" Line="21" Column="59" />
+      <File FileName="iOS/Views/MovieCell.cs" Line="31" Column="56" />
+      <File FileName="iOS/Models/MovieCellDTO.cs" Line="15" Column="1" />
+      <File FileName="iOS/Controllers/MovieListSource.cs" Line="25" Column="4" />
+      <File FileName="iOS/Controllers/MovieInfoController.cs" Line="36" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.MovieApp.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.D6177F65-426E-4E68-A1BF-15CACB69CD4C" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
