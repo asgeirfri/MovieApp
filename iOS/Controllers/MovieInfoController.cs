@@ -1,6 +1,7 @@
 ﻿using System;
 using UIKit;
 using CoreGraphics;
+using MovieApp.Models;
 
 namespace MovieApp.iOS
 {

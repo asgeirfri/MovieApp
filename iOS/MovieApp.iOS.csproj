@@ -123,7 +123,7 @@
     <Folder Include="Resources\" />
     <Folder Include="Controllers\" />
     <Folder Include="Views\" />
-    <Folder Include="Models\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -136,16 +136,14 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="MyMovieDbSettings.cs" />
     <Compile Include="Controllers\MovieListController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Views\MovieCell.cs" />
     <Compile Include="Controllers\MovieListSource.cs" />
     <Compile Include="Controllers\MovieInfoController.cs" />
-    <Compile Include="Models\MovieDetailsDTO.cs" />
-    <Compile Include="Models\MovieCellDTO.cs" />
     <Compile Include="Controllers\TabBarController.cs" />
     <Compile Include="Controllers\MovieTopRatedController.cs" />
+    <Compile Include="Services\iOSPosterDownload.cs" />
   </ItemGroup>
   <Import Project="..\MovieDownload\MovieDownload.projitems" Label="Shared" Condition="Exists('..\MovieDownload\MovieDownload.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

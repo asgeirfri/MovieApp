@@ -4,6 +4,7 @@ using System.Text;
 
 namespace MovieDownload
 {
+	
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
@@ -23,7 +24,6 @@ namespace MovieDownload
             {
                 return string.Empty;
             }
-
             string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             string localPath = Path.Combine(documentsPath, remoteFilePath.TrimStart('/'));
             return localPath;

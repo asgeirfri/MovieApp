@@ -28,5 +28,10 @@
 /Users/Asgeir/Projects/MovieApp/Droid/bin/Debug/Xamarin.Forms.Platform.Android.dll
 /Users/Asgeir/Projects/MovieApp/Droid/bin/Debug/Xamarin.Forms.Platform.dll
 /Users/Asgeir/Projects/MovieApp/Droid/bin/Debug/Xamarin.Forms.Xaml.dll
+/Users/Asgeir/Projects/MovieApp/Droid/bin/Debug/Newtonsoft.Json.dll
+/Users/Asgeir/Projects/MovieApp/Droid/bin/Debug/DM.MovieApi.dll
 /Users/Asgeir/Projects/MovieApp/Droid/bin/Debug/MovieApp.dll
 /Users/Asgeir/Projects/MovieApp/Droid/bin/Debug/MovieApp.dll.mdb
+/Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/res/layout/main.xml
+/Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/res/layout/movielistitem.xml
+/Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/MonoAndroid,Version=v7.0.AssemblyAttribute.cs

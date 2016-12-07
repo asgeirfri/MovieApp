@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Foundation;
 using UIKit;
 using MovieApp.iOS.Views;
-
+using MovieApp.Models;
 
 namespace MovieApp.iOS.Controllers
 {

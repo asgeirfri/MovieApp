@@ -3,19 +3,14 @@ using DM.MovieApi;
 using UIKit;
 using CoreGraphics;
 using DM.MovieApi.MovieDb.Movies;
-using DM.MovieApi.ApiResponse;
-using System.Threading.Tasks;
-using System.Collections.Generic;
-using Newtonsoft.Json;
-using MovieDownload;
-using System.IO;
-using System.Threading;
+using MovieApp.Services;
 
 namespace MovieApp.iOS.Controllers
 {
 	public partial class MovieController : UIViewController
 	{
-		private ImageDownloader _downloader;
+		private MovieService _movieService;
+		//private ImageDownloader _downloader;
 		private const int HorizontalMargin = 20;
 		private const int StartY = 80;
 		private const int StepY = 50;
@@ -28,9 +23,7 @@ namespace MovieApp.iOS.Controllers
 			this.Title = "Movie Search";
 			this.TabBarItem = new UITabBarItem(UITabBarSystemItem.Search, 0);
 
-			MyMovieDbSettings settings = new MyMovieDbSettings();
-			MovieDbFactory.RegisterSettings(settings);
-			_downloader = new ImageDownloader(new StorageClient());
+			_movieService = new MovieService(new iOSPosterDownload());
 		}
 
 		public override void ViewDidLoad()
@@ -61,49 +54,8 @@ namespace MovieApp.iOS.Controllers
 				}
 				movieField.ResignFirstResponder();
 				searchButton.Enabled = false;
-				var movieApi = MovieDbFactory.Create<IApiMovieRequest>().Value;
 				spinner.StartAnimating();
-				ApiSearchResponse<MovieInfo> response = await movieApi.SearchByTitleAsync(movieField.Text);
-				var results = new List<MovieDetailsDTO>();
-				foreach (var res in response.Results)
-				{
-					var durationResponse = await movieApi.FindByIdAsync(res.Id);
-					var creditResponse = await movieApi.GetCreditsAsync(res.Id);
-					string localPath = "";
-					if (res.PosterPath != null)
-					{
-						localPath = _downloader.LocalPathForFilename(res.PosterPath);
-						var token = new CancellationToken();
-						if (!File.Exists(localPath))
-						{
-							await _downloader.DownloadImage(res.PosterPath, localPath, token);
-						}
-					}
-
-					string casts = "";
-					if (creditResponse.Item != null)
-					{
-						for (int i = 0; i < 3; i++)
-						{
-							if (creditResponse.Item.CastMembers.Count > i)
-							{
-								casts += creditResponse.Item.CastMembers[i].Name + ", ";
-							}
-						}
-						if (casts.Length > 2)
-						{
-							casts = casts.Remove(casts.Length - 2);
-						}
-					}
-					var duration = "";
-					if (durationResponse.Item != null)
-					{
-						duration = durationResponse.Item.Runtime.ToString();
-					}
-
-					var resp = new MovieDetailsDTO(res, localPath, casts, duration);
-					results.Add(resp);
-				}
+				var results = await _movieService.GetAllMovieInfo(true, movieField.Text);
 				this.NavigationController.PushViewController(new MovieListController(results), true);
 				spinner.StopAnimating();
 				searchButton.Enabled = true;
@@ -168,42 +120,5 @@ namespace MovieApp.iOS.Controllers
 			this._yCord += StepY;
 		}
 	}
-	/*private async Task<List<MovieDetailsDTO>> PrepareData(string query)
-	{
-		var movieApi = MovieDbFactory.Create<IApiMovieRequest>().Value;
-		ApiSearchResponse<MovieInfo> response = await movieApi.SearchByTitleAsync(query);
-		var results = new List<MovieDetailsDTO>();
-		foreach (var res in response.Results)
-		{
-			var creditResponse = await movieApi.GetCreditsAsync(res.Id);
-			string localPath = "";
-			if (res.PosterPath != null)
-			{
-				localPath = _downloader.LocalPathForFilename(res.PosterPath);
-				var token = new CancellationToken();
-				if (!File.Exists(localPath))
-				{
-					await _downloader.DownloadImage(res.PosterPath, localPath, token);
-				}
-			}
-
-			string casts = "";
-			for (int i = 0; i < 3; i++)
-			{
-				if (creditResponse.Item.CastMembers.Count > i)
-				{
-					casts += creditResponse.Item.CastMembers[i].Name + ", ";
-				}
-			}
-			if (casts.Length > 2)
-			{
-				casts = casts.Remove(casts.Length - 2);
-			}
-
-			var resp = new MovieDetailsDTO(res, localPath, casts);
-			results.Add(resp);
-		}
-		return results;
-	}*/
 }
 

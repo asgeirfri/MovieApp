@@ -1,7 +1,15 @@
-MovieApp.Droid.MainActivity, MovieApp.Droid;md5056f0a51bcb7664d1dd6a06520071d8b.MainActivity
-MovieApp.Droid.MainActivity, MovieApp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5056f0a51bcb7664d1dd6a06520071d8b.MainActivity
-MovieApp.Droid.MainActivity;md5056f0a51bcb7664d1dd6a06520071d8b.MainActivity
-movieapp.droid.MainActivity;md5056f0a51bcb7664d1dd6a06520071d8b.MainActivity
+MovieApp.Droid.Activities.MainActivity, MovieApp.Droid;md56f535cdf15b1480e6a83c6620888b38a.MainActivity
+MovieApp.Droid.Activities.MainActivity, MovieApp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md56f535cdf15b1480e6a83c6620888b38a.MainActivity
+MovieApp.Droid.Activities.MainActivity;md56f535cdf15b1480e6a83c6620888b38a.MainActivity
+movieapp.droid.activities.MainActivity;md56f535cdf15b1480e6a83c6620888b38a.MainActivity
+MovieApp.Droid.Activities.MovieListAdapter, MovieApp.Droid;md56f535cdf15b1480e6a83c6620888b38a.MovieListAdapter
+MovieApp.Droid.Activities.MovieListAdapter, MovieApp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md56f535cdf15b1480e6a83c6620888b38a.MovieListAdapter
+MovieApp.Droid.Activities.MovieListAdapter;md56f535cdf15b1480e6a83c6620888b38a.MovieListAdapter
+movieapp.droid.activities.MovieListAdapter;md56f535cdf15b1480e6a83c6620888b38a.MovieListAdapter
+MovieApp.Droid.Activities.MovieListActivity, MovieApp.Droid;md56f535cdf15b1480e6a83c6620888b38a.MovieListActivity
+MovieApp.Droid.Activities.MovieListActivity, MovieApp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md56f535cdf15b1480e6a83c6620888b38a.MovieListActivity
+MovieApp.Droid.Activities.MovieListActivity;md56f535cdf15b1480e6a83c6620888b38a.MovieListActivity
+movieapp.droid.activities.MovieListActivity;md56f535cdf15b1480e6a83c6620888b38a.MovieListActivity
 Android.Support.V4.View.ViewPager/IOnPageChangeListenerImplementor, Xamarin.Android.Support.v4;mono.android.support.v4.view.ViewPager_OnPageChangeListenerImplementor
 Android.Support.V4.View.ViewPager+IOnPageChangeListenerImplementor, Xamarin.Android.Support.v4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v4.view.ViewPager_OnPageChangeListenerImplementor
 Android.Support.V4.View.ViewPager.IOnPageChangeListenerImplementor;mono.android.support.v4.view.ViewPager_OnPageChangeListenerImplementor

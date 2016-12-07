@@ -1,24 +1,17 @@
-﻿using System;
-using UIKit;
-using DM.MovieApi;
-using DM.MovieApi.MovieDb.Movies;
-using DM.MovieApi.ApiResponse;
-using System.Threading.Tasks;
+﻿using UIKit;
 using System.Collections.Generic;
-using System.Threading;
-using MovieDownload;
-using System.IO;
 using CoreGraphics;
+using MovieApp.Models;
+using MovieApp.Services;
 
 namespace MovieApp.iOS.Controllers
 {
 	public class MovieTopRatedController : UITableViewController
 	{
 		private bool shouldReload;
-		private ImageDownloader _downloader;
 		private List<MovieDetailsDTO> _movies;
 		private UIActivityIndicatorView _spinner;
-		private IApiMovieRequest _movieApi;
+		private MovieService _service;
 
 		public MovieTopRatedController()
 		{
@@ -26,9 +19,7 @@ namespace MovieApp.iOS.Controllers
 			this.Title = "Top Rated";
 			this.TabBarItem = new UITabBarItem(UITabBarSystemItem.TopRated, 0);
 
-			_downloader = new ImageDownloader(new StorageClient());
-			MyMovieDbSettings settings = new MyMovieDbSettings();
-			MovieDbFactory.RegisterSettings(settings);
+			_service = new MovieService(new iOSPosterDownload());
 		}
 
 		public override void ViewDidLoad()
@@ -38,7 +29,6 @@ namespace MovieApp.iOS.Controllers
 			this.TableView.RowHeight = 60;
 
 			_spinner = CreateSpinner();
-			_movieApi = MovieDbFactory.Create<IApiMovieRequest>().Value;
 
 			this.View.AddSubview(_spinner);
 		}
@@ -49,47 +39,7 @@ namespace MovieApp.iOS.Controllers
 			if (shouldReload)
 			{
 				_spinner.StartAnimating();
-				ApiSearchResponse<MovieInfo> response = await _movieApi.GetTopRatedAsync();
-				var results = new List<MovieDetailsDTO>();
-				foreach (var res in response.Results)
-				{
-					var durationResponse = await _movieApi.FindByIdAsync(res.Id);
-					var creditResponse = await _movieApi.GetCreditsAsync(res.Id);
-					string localPath = "";
-					if (res.PosterPath != null)
-					{
-						localPath = _downloader.LocalPathForFilename(res.PosterPath);
-						var token = new CancellationToken();
-						if (!File.Exists(localPath))
-						{
-							await _downloader.DownloadImage(res.PosterPath, localPath, token);
-						}
-					}
-
-					string casts = "";
-					if (creditResponse.Item != null)
-					{
-						for (int i = 0; i < 3; i++)
-						{
-							if (creditResponse.Item.CastMembers.Count > i)
-							{
-								casts += creditResponse.Item.CastMembers[i].Name + ", ";
-							}
-						}
-						if (casts.Length > 2)
-						{
-							casts = casts.Remove(casts.Length - 2);
-						}
-					}
-					var duration = "";
-					if (durationResponse.Item != null)
-					{
-						duration = durationResponse.Item.Runtime.ToString();
-					}
-
-					var resp = new MovieDetailsDTO(res, localPath, casts, duration);
-					results.Add(resp);
-				}
+				var results = await _service.GetAllMovieInfo(false, "");
 				_movies = results;
 				_spinner.StopAnimating();
 				this.TableView.Source = new MovieListSource(this._movies, OnSelectedMovie);
@@ -116,50 +66,12 @@ namespace MovieApp.iOS.Controllers
 			this.NavigationController.PushViewController(new MovieInfoController(_movies[row]), true);
 		}
 
-		/*private async Task<List<MovieDetailsDTO>> PrepareData()
-		{
-			var movieApi = MovieDbFactory.Create<IApiMovieRequest>().Value;
-			ApiSearchResponse<MovieInfo> response = await movieApi.GetTopRatedAsync();
-			var results = new List<MovieDetailsDTO>();
-			foreach (var res in response.Results)
-			{
-				var creditResponse = await movieApi.GetCreditsAsync(res.Id);
-				string localPath = "";
-				if (res.PosterPath != null)
-				{
-					localPath = _downloader.LocalPathForFilename(res.PosterPath);
-					var token = new CancellationToken();
-					if (!File.Exists(localPath))
-					{
-						await _downloader.DownloadImage(res.PosterPath, localPath, token);
-					}
-				}
-
-				string casts = "";
-				for (int i = 0; i < 3; i++)
-				{
-					if (creditResponse.Item.CastMembers.Count > i)
-					{
-						casts += creditResponse.Item.CastMembers[i].Name + ", ";
-					}
-				}
-				if (casts.Length > 2)
-				{
-					casts = casts.Remove(casts.Length - 2);
-				}
-
-				var resp = new MovieDetailsDTO(res, localPath, casts);
-				results.Add(resp);
-			}
-			return results;
-		}*/
-
 		private UIActivityIndicatorView CreateSpinner()
 		{
 			UIActivityIndicatorView spinner = new UIActivityIndicatorView()
 			{
 				Frame = new CGRect(5, 5, this.View.Bounds.Width - 2 * 5, 50),
-				Color = UIColor.Magenta
+				Color = UIColor.White
 			};
 			return spinner;
 		}

@@ -3,6 +3,7 @@
 /Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/System.Xml.dll
 /Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/System.Core.dll
 /Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/Mono.Android.dll
+/Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/System.Net.Http.dll
 /Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/Java.Interop.dll
 /Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/System.Runtime.dll
 /Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/Xamarin.Android.Support.v4.dll
@@ -18,9 +19,10 @@
 /Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/Xamarin.Forms.Platform.Android.dll
 /Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/Xamarin.Forms.Platform.dll
 /Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/Xamarin.Forms.Xaml.dll
+/Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/Newtonsoft.Json.dll
+/Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/DM.MovieApi.dll
 /Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/MovieApp.dll
 /Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/mscorlib.dll
-/Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/System.Net.Http.dll
 /Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/System.Runtime.Serialization.dll
 /Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/System.ServiceModel.Internals.dll
 /Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/System.Threading.dll
@@ -42,4 +44,12 @@
 /Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/System.IO.dll
 /Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/System.Dynamic.Runtime.dll
 /Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/System.Text.RegularExpressions.dll
+/Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/System.Xml.XDocument.dll
+/Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/System.Xml.Linq.dll
+/Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/System.Runtime.Serialization.Primitives.dll
+/Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/System.Text.Encoding.dll
+/Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/System.Text.Encoding.Extensions.dll
+/Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/Microsoft.CSharp.dll
+/Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/Mono.CSharp.dll
+/Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/System.Net.Primitives.dll
 /Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/android/assets/System.Diagnostics.Tools.dll
