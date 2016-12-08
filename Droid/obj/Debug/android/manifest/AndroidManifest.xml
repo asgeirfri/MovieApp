@@ -4,7 +4,7 @@
   <uses-sdk android:minSdkVersion="15" />
   <uses-permission android:name="android.permission.INTERNET" />
   <application android:label="MovieApp" android:name="android.app.Application" android:allowBackup="true" android:icon="@drawable/icon" android:debuggable="true">
-    <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="Movie Search" android:theme="@style/MyTheme" android:name="md56f535cdf15b1480e6a83c6620888b38a.MainActivity">
+    <activity android:icon="@drawable/icon" android:label="Movie Search" android:theme="@style/MyTheme" android:name="md56f535cdf15b1480e6a83c6620888b38a.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

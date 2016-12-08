@@ -1,21 +1,16 @@
-﻿<Properties StartupConfiguration="{17DB0048-866C-4DD9-B6FC-F715A563F2D7}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/Controllers/MovieTopRatedController.cs">
+﻿<Properties StartupConfiguration="{F356E93E-E55C-4468-B261-5A29AB60DAC4}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Droid/Activities/MovieSearchFragment.cs">
     <Files>
-      <File FileName="Droid/Services/DroidPosterDownload.cs" Line="12" Column="1" />
-      <File FileName="iOS/Services/iOSPosterDownload.cs" Line="11" Column="3" />
-      <File FileName="Droid/Activities/MainActivity.cs" Line="7" Column="21" />
-      <File FileName="MovieApp/Services/IPosterDownload.cs" Line="10" Column="2" />
-      <File FileName="MovieApp/Services/MovieService.cs" Line="24" Column="46" />
-      <File FileName="MovieApp/MyMovieDbSettings.cs" Line="3" Column="19" />
-      <File FileName="Droid/Activities/MovieListAdapter.cs" Line="8" Column="15" />
-      <File FileName="Droid/Activities/MovieListActivity.cs" Line="13" Column="15" />
-      <File FileName="iOS/Controllers/MovieController.cs" Line="9" Column="2" />
-      <File FileName="iOS/Controllers/MovieTopRatedController.cs" Line="5" Column="20" />
+      <File FileName="Droid/Activities/MovieSearchFragment.cs" Line="51" Column="32" />
+      <File FileName="Droid/Activities/TopMovieFragment.cs" Line="43" Column="2" />
+      <File FileName="Droid/Activities/MovieListAdapter.cs" Line="16" Column="15" />
+      <File FileName="Droid/Activities/MovieListActivity.cs" Line="22" Column="3" />
+      <File FileName="Droid/Activities/MainActivity.cs" Line="26" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.MovieApp.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.D6177F65-426E-4E68-A1BF-15CACB69CD4C" />
-  <MonoDevelop.Ide.ItemProperties.MovieApp.Droid AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.adfh" />
+  <MonoDevelop.Ide.ItemProperties.MovieApp.Droid AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.afPhone7" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
