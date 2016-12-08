@@ -16,6 +16,9 @@ namespace MovieApp.Droid
 	public class TopMovieFragment : Fragment
 	{
 		private MovieService _service;
+		private View _rootView;
+		private LayoutInflater _inflater;
+		private ViewGroup _container;
 
 		public TopMovieFragment()
 		{
@@ -29,23 +32,19 @@ namespace MovieApp.Droid
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
 			base.OnCreateView(inflater, container, savedInstanceState);
-			var rootView = inflater.Inflate(Resource.Layout.TopMovies, container, false);
-
-			// Get our UI controls from the loaded layout
-			GetTopMovies(rootView);
 			//progressBar.Visibility = ViewStates.Invisible;
-			return rootView;
+			_rootView = inflater.Inflate(Resource.Layout.TopMovies, container, false);
+			return _rootView;
 		}
 
-		private async void GetTopMovies(View rootView)
+		public async void GetTopMovies()
 		{
-			var progressBar = rootView.FindViewById<ProgressBar>(Resource.Id.progressBar);
+			var progressBar = _rootView.FindViewById<ProgressBar>(Resource.Id.progressBar);
 			var res = await _service.GetAllMovieInfo(false, "");
 			var intent = new Intent(this.Context, typeof(MovieListActivity));
 			intent.PutExtra("movies", JsonConvert.SerializeObject(res));
 			progressBar.Visibility = ViewStates.Gone;
 			this.StartActivity(intent);
 		}
-
 	}
 }

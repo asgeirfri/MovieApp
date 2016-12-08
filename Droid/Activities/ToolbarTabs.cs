@@ -13,10 +13,11 @@ namespace MovieApp.Droid
 	{
 		public static void Construct(FragmentActivity activity, Toolbar toolbar)
 		{
+			TopMovieFragment topMovieFragment = new TopMovieFragment();
 			var fragments = new Fragment[]
 			{
 				new MovieSearchFragment(),
-				new TopMovieFragment()
+				topMovieFragment
 			};
 
 			var titles = CharSequence.ArrayFromStringArray(new[]
@@ -32,6 +33,14 @@ namespace MovieApp.Droid
 			tabLayout.SetupWithViewPager(viewPager);
 
 			SetToolbar(activity, toolbar);
+			/*tabLayout.TabSelected += (sender, args) =>
+				{
+					var tab = args.Tab;
+					if (tab.Position == 1)
+					{
+						topMovieFragment.GetTopMovies();
+					}
+				};*/
 		}
 
 		public static void SetToolbar(Activity activity, Toolbar toolbar)
