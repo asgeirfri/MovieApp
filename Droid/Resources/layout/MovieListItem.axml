@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px"
-    android:padding="20px">
+    android:padding="20px"
+    android:background="#D61616">
     <TextView
         android:text="Marylin Monroe"
         android:layout_width="wrap_content"
@@ -15,16 +16,6 @@
         android:textColor="@android:color/white"
         android:id="@+id/title" />
     <TextView
-        android:text="1926"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="calibri"
-        android:textSize="14dp"
-        android:textColor="@android:color/white"
-        android:id="@+id/year"
-        android:layout_below="@id/title"
-        android:layout_alignLeft="@id/title" />
-    <TextView
         android:text="Casts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,7 +23,7 @@
         android:textSize="10dp"
         android:textColor="@android:color/white"
         android:id="@+id/cast"
-        android:layout_below="@id/year"
+        android:layout_below="@id/title"
         android:layout_alignLeft="@id/title" />
     <ImageView
         android:id="@+id/picture"

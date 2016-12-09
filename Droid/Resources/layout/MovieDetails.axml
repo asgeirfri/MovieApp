@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D61616">
+    <ImageView
+        android:id="@+id/picture"
+        android:layout_width="500px"
+        android:layout_height="650px"
+        android:layout_alignParentLeft="true" />
+    <TextView
+        android:text="Marylin Monroe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="calibri"
+        android:textSize="22dp"
+        android:textColor="@android:color/white"
+        android:layout_margin="20dp"
+        android:layout_below="@id/picture"
+        android:id="@+id/title" />
+    <TextView
+        android:text="Runtime and categories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="calibri"
+        android:textSize="16dp"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/detail"
+        android:layout_below="@id/title" />
+    <TextView
+        android:text="Marylin Monroe was hot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="calibri"
+        android:textSize="12dp"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/overview"
+        android:layout_below="@id/detail" />
+</RelativeLayout>

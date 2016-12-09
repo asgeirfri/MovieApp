@@ -22,6 +22,10 @@ MovieApp.Droid.TabsFragmentPageAdapter, MovieApp.Droid;md5056f0a51bcb7664d1dd6a0
 MovieApp.Droid.TabsFragmentPageAdapter, MovieApp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5056f0a51bcb7664d1dd6a06520071d8b.TabsFragmentPageAdapter
 MovieApp.Droid.TabsFragmentPageAdapter;md5056f0a51bcb7664d1dd6a06520071d8b.TabsFragmentPageAdapter
 movieapp.droid.TabsFragmentPageAdapter;md5056f0a51bcb7664d1dd6a06520071d8b.TabsFragmentPageAdapter
+MovieApp.Droid.MovieDetailsActivity, MovieApp.Droid;md5056f0a51bcb7664d1dd6a06520071d8b.MovieDetailsActivity
+MovieApp.Droid.MovieDetailsActivity, MovieApp.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5056f0a51bcb7664d1dd6a06520071d8b.MovieDetailsActivity
+MovieApp.Droid.MovieDetailsActivity;md5056f0a51bcb7664d1dd6a06520071d8b.MovieDetailsActivity
+movieapp.droid.MovieDetailsActivity;md5056f0a51bcb7664d1dd6a06520071d8b.MovieDetailsActivity
 Xamarin.Forms.Platform.Android.CellAdapter, Xamarin.Forms.Platform.Android;md5b60ffeb829f638581ab2bb9b1a7f4f3f.CellAdapter
 Xamarin.Forms.Platform.Android.CellAdapter, Xamarin.Forms.Platform.Android, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null;md5b60ffeb829f638581ab2bb9b1a7f4f3f.CellAdapter
 Xamarin.Forms.Platform.Android.CellAdapter;md5b60ffeb829f638581ab2bb9b1a7f4f3f.CellAdapter

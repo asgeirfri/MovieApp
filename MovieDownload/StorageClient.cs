@@ -9,7 +9,7 @@ namespace MovieDownload
 
     public sealed class StorageClient : IImageStorage
     {
-        private readonly string ImageUrl = "http://image.tmdb.org/t/p/original";
+        private readonly string ImageUrl = "http://image.tmdb.org/t/p/w92";
         private HttpClient _httpClient;
 
         public StorageClient()

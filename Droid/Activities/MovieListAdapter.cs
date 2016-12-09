@@ -50,17 +50,25 @@ namespace MovieApp.Droid.Activities
 			{
 				view = this._context.LayoutInflater.Inflate(Resource.Layout.MovieListItem, null);
 			}
-
+			//view.SetBackgroundColor(Color.DarkRed);
 			var movie = this._movies[position];
-			view.FindViewById<TextView>(Resource.Id.title).Text = movie.info.Title;
-			view.FindViewById<TextView>(Resource.Id.year).Text = movie.info.ReleaseDate.Year.ToString();
-			view.FindViewById<TextView>(Resource.Id.cast).Text = movie.casts;
+			var title = view.FindViewById<TextView>(Resource.Id.title);
+			var casts = view.FindViewById<TextView>(Resource.Id.cast);
+			var image = view.FindViewById<ImageView>(Resource.Id.picture);
+
+			SetTextAndLayout(title, movie.info.Title + " (" + movie.info.ReleaseDate.Year + ")");
+			SetTextAndLayout(casts, movie.casts);
 
 			var file = new File(movie.poster);
 			var bmimg = BitmapFactory.DecodeFile(file.AbsolutePath);
-			view.FindViewById<ImageView>(Resource.Id.picture).SetImageBitmap(bmimg);
+			image.SetImageBitmap(bmimg);
 
 			return view;
+		}
+
+		private void SetTextAndLayout(TextView view, String text)
+		{
+			view.Text = text;
 		}
 	}
 }

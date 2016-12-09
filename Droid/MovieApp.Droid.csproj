@@ -118,6 +118,7 @@
     <Compile Include="Activities\TopMovieFragment.cs" />
     <Compile Include="Activities\TabsFragmentPageAdapter.cs" />
     <Compile Include="Activities\ToolbarTabs.cs" />
+    <Compile Include="Activities\MovieDetailsActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -139,6 +140,7 @@
     <AndroidResource Include="Resources\layout\toolbar.xml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\layout\TopMovies.axml" />
+    <AndroidResource Include="Resources\layout\MovieDetails.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Activities\" />

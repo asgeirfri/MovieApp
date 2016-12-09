@@ -48,6 +48,12 @@ namespace MovieApp.Droid
 			progressBar.Visibility = ViewStates.Gone;
 			list.Visibility = ViewStates.Visible;
 			list.Adapter = new MovieListAdapter(context, res);
+			list.ItemClick += (sender, e) =>
+			{
+				var intent = new Intent(this.Context, typeof(MovieDetailsActivity));
+				intent.PutExtra("movie", JsonConvert.SerializeObject(res[e.Position]));
+				this.StartActivity(intent);
+			};
 		}
 	}
 }

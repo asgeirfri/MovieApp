@@ -39,7 +39,10 @@ namespace MovieApp.Services
 		{
 			ApiSearchResponse<MovieInfo> response;
 			var results = new List<MovieDetailsDTO>();
-
+			if (_movieApi == null)
+			{
+				return new List<MovieDetailsDTO>();
+			}
 			if (search)
 			{
 				response = await _movieApi.SearchByTitleAsync(query);

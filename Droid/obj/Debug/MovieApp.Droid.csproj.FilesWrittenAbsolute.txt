@@ -38,3 +38,4 @@
 /Users/Asgeir/Projects/MovieApp/Droid/bin/Debug/Xamarin.Android.Support.Vector.Drawable.dll
 /Users/Asgeir/Projects/MovieApp/Droid/bin/Debug/MovieApp.dll
 /Users/Asgeir/Projects/MovieApp/Droid/bin/Debug/MovieApp.dll.mdb
+/Users/Asgeir/Projects/MovieApp/Droid/obj/Debug/res/layout/moviedetails.xml
