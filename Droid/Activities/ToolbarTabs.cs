@@ -31,16 +31,14 @@ namespace MovieApp.Droid
 
 			var tabLayout = activity.FindViewById<TabLayout>(Resource.Id.sliding_tabs);
 			tabLayout.SetupWithViewPager(viewPager);
-
-			SetToolbar(activity, toolbar);
-			/*tabLayout.TabSelected += (sender, args) =>
+			viewPager.PageSelected += (sender, args) =>
+			{
+				if (args.Position == 1)
 				{
-					var tab = args.Tab;
-					if (tab.Position == 1)
-					{
-						topMovieFragment.GetTopMovies();
-					}
-				};*/
+					topMovieFragment.GetTopMovies(activity);
+				}
+			};
+			SetToolbar(activity, toolbar);
 		}
 
 		public static void SetToolbar(Activity activity, Toolbar toolbar)

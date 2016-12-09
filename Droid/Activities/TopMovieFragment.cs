@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Support.V4.App;
@@ -13,12 +14,10 @@ using Newtonsoft.Json;
 
 namespace MovieApp.Droid
 {
-	public class TopMovieFragment : Fragment
+	public class TopMovieFragment : Android.Support.V4.App.Fragment
 	{
 		private MovieService _service;
 		private View _rootView;
-		private LayoutInflater _inflater;
-		private ViewGroup _container;
 
 		public TopMovieFragment()
 		{
@@ -37,14 +36,18 @@ namespace MovieApp.Droid
 			return _rootView;
 		}
 
-		public async void GetTopMovies()
+		public async void GetTopMovies(Activity context)
 		{
 			var progressBar = _rootView.FindViewById<ProgressBar>(Resource.Id.progressBar);
+			var list = _rootView.FindViewById<ListView>(Resource.Id.movielistview);
+			list.Visibility = ViewStates.Invisible;
+			progressBar.Visibility = ViewStates.Visible;
 			var res = await _service.GetAllMovieInfo(false, "");
-			var intent = new Intent(this.Context, typeof(MovieListActivity));
-			intent.PutExtra("movies", JsonConvert.SerializeObject(res));
+			/*var intent = new Intent(this.Context, typeof(MovieListActivity));
+			intent.PutExtra("movies", JsonConvert.SerializeObject(res));*/
 			progressBar.Visibility = ViewStates.Gone;
-			this.StartActivity(intent);
+			list.Visibility = ViewStates.Visible;
+			list.Adapter = new MovieListAdapter(context, res);
 		}
 	}
 }

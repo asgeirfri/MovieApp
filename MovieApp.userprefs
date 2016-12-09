@@ -1,7 +1,13 @@
 ﻿<Properties StartupConfiguration="{F356E93E-E55C-4468-B261-5A29AB60DAC4}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Droid/Activities/ToolbarTabs.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MovieApp/Services/MovieService.cs">
     <Files>
-      <File FileName="Droid/Activities/ToolbarTabs.cs" Line="37" Column="6" />
+      <File FileName="Droid/Activities/ToolbarTabs.cs" Line="38" Column="44" />
+      <File FileName="Droid/Activities/MovieSearchFragment.cs" Line="1" Column="1" />
+      <File FileName="Droid/Activities/TabsFragmentPageAdapter.cs" Line="1" Column="1" />
+      <File FileName="Droid/Activities/MovieListActivity.cs" Line="28" Column="58" />
+      <File FileName="Droid/Activities/MovieListAdapter.cs" Line="1" Column="1" />
+      <File FileName="Droid/Activities/TopMovieFragment.cs" Line="17" Column="65" />
+      <File FileName="MovieApp/Services/MovieService.cs" Line="52" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
